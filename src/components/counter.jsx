@@ -7,10 +7,10 @@ class counter extends Component {
     this.state = {
       count: 0,
     }
-    this.handleIncrement = this.handleIncrement.bind(this)
+    // this.handleIncrement = this.handleIncrement.bind(this)
   }
-  
-  handleIncrement() {
+
+  handleIncrement = () => {
     console.log('Increment Clicked', this)
   }
 
