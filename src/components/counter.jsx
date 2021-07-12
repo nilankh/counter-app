@@ -6,12 +6,13 @@ class counter extends Component {
 
     this.state = {
       count: 0,
-      tags: ['tag1', 'tag2', 'tag3'],
+      tags: [],
     }
   }
 
-renderTags(){
-    if(this.state.tags.length === 0) return <p>There are no Tags!</p>;
+  //   One technique
+  renderTags() {
+    if (this.state.tags.length === 0) return <p>There are no Tags!</p>
 
     return (
       <ul>
@@ -20,11 +21,12 @@ renderTags(){
         ))}
       </ul>
     )
-}
+  }
 
   render() {
     return (
       <div>
+        {this.state.tags.length === 0 && 'please create a new tag!'}
         {this.renderTags()}
       </div>
     )
