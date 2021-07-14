@@ -24,6 +24,7 @@ class counters extends Component {
   handleIncrement = (counter) => {
     // console.log(counter);
     const counters = [...this.state.counters]
+    // Facing issue in understandin watch Removing the local state in Composing Components
     const index = counters.indexOf(counter)
     counters[index] = { ...counter }
     counters[index].value++
