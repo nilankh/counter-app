@@ -21,15 +21,26 @@ class counters extends Component {
     this.setState({ counters })
   }
 
+  handleReset = () => {
+    const counters = this.state.counters.map((c) => {
+      c.value = 0
+      return c
+    })
+    this.setState({ counters: counters })
+  }
+
   render() {
     return (
       <div>
+        <button onClick={this.handleReset} className='btn-primary btn-sm m-2'>
+          Reset
+        </button>
         {this.state.counters.map((counter) => (
           <Counter
             key={counter.id}
             onDelete={this.handleDelete}
             // value={counter.value}
-            // id={counter.id}
+            // id={counter.id} itna saara alag alag likh ke kya fayda direct counter object hi likh dete h all these properties of counter object only, agar koi new feature add hua, toa fir aa ke new props = {} aise likhna hoga isse aacha h direct show kar le
             counter={counter}
           />
         ))}
