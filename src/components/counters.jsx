@@ -21,6 +21,15 @@ class counters extends Component {
     this.setState({ counters })
   }
 
+  handleIncrement = (counter) => {
+    // console.log(counter);
+    const counters = [...this.state.counters]
+    const index = counters.indexOf(counter)
+    counters[index] = { ...counter }
+    counters[index].value++
+    this.setState({ counters })
+  }
+
   handleReset = () => {
     const counters = this.state.counters.map((c) => {
       c.value = 0
@@ -39,6 +48,7 @@ class counters extends Component {
           <Counter
             key={counter.id}
             onDelete={this.handleDelete}
+            onIncrement={this.handleIncrement}
             // value={counter.value}
             // id={counter.id} itna saara alag alag likh ke kya fayda direct counter object hi likh dete h all these properties of counter object only, agar koi new feature add hua, toa fir aa ke new props = {} aise likhna hoga isse aacha h direct show kar le
             counter={counter}
